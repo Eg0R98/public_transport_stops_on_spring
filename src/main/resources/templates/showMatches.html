@@ -1,0 +1,63 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<td th:if="${!#lists.isEmpty(stopMatches)}">
+    <table cellspacing="3" border="1">
+        <thead>
+        <tr>
+            <th> №</th>
+            <th> Название</th>
+            <th> Расположение</th>
+            <th> Направление</th>
+            <th> Автобусы</th>
+            <th> Троллейбусы</th>
+            <th> Травмваи</th>
+            <th> Электрички</th>
+            <th> Речной транспорт</th>
+            <th> Станции метро</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="stop, stat : ${stopMatches}">
+            <td><span th:text="${stat.index+1}"> № </span></td>
+            <td><span th:text="${stop.title}"> Название </span></td>
+            <td><span th:text="${stop.adjacentStreet}"> Расположение </span></td>
+            <td><span th:text="${stop.direction}"> Направление </span></td>
+            <td><span th:text="${stop.buses}"> Автобусы </span></td>
+            <td><span th:text="${stop.trolleybuses}"> Троллейбусы </span></td>
+            <td><span th:text="${stop.trams}"> Травмваи </span></td>
+            <td><span th:text="${stop.electricTrains}"> Электрички </span></td>
+            <td><span th:text="${stop.riverTransports}">  Речной транспорт </span></td>
+            <td><span th:text="${stop.metros}">  Станции метро </span></td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <br/>
+    <font size="4">
+        <p>Выберите соответвующую вашему запросу остановку, расположение и направление из списка. Для этого введите их
+            номер:</p>
+    </font>
+
+    <form  action="/arrivalTimeAndCurrentPosition" method="get">
+        <input  type="number" min="1" th:max="${#lists.size(stopMatches)}" name="matchNumber">
+        <button type="submit">OK</button>
+    </form>
+</td>
+
+<p th:unless="${!#lists.isEmpty(stopMatches)}">
+    <font color="red">
+        Остановки не найдены. Возможен некорректный ввод
+    </font>
+    <br/>
+    <br/>
+    <a href="/inputStop">Повторить ввод</a>
+</p>
+
+</body>
+</html>

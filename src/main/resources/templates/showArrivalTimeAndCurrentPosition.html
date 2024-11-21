@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<!--th:if="${!#lists.size(stopMatches) > matchNumber}"-->
+
+<table  cellspacing="3" border="1">
+    <thead>
+    <tr>
+        <th> Время, мин</th>
+        <th> Маршрут</th>
+        <th>Модель ТС и госномер</th>
+        <th> Текущее положение</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="forecast: ${response}">
+        <td><span th:text="${forecast.time}">Время, мин</span></td>
+        <td><span th:text="${forecast.route}">Маршрут</span></td>
+        <td><span th:text="${forecast.transportVehicle}">Модель ТС и госномер</span></td>
+        <td><span th:text="${forecast.transportPosition}"> Текущее положение</span></td>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+<br/>
+<font size="4">
+<a href="/inputStop">Повторить ввод названия остановки</a>
+</font>
+</body>
+</html>
