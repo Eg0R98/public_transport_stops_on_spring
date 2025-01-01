@@ -24,7 +24,7 @@ public class StopXmlUnmarshall {
     @XmlElement(name = "KS_ID")
     @Id
     @Column(name = "ID")
-    private int stopID;
+    private Integer stopID;
 
     @Column(name = "TITLE")
     private String title;
@@ -69,7 +69,7 @@ public class StopXmlUnmarshall {
     private String riverTransports;
 
 
-    public StopXmlUnmarshall(int stopID, String title, String adjacentStreet, String direction, String busesMunicipal,
+    public StopXmlUnmarshall(Integer stopID, String title, String adjacentStreet, String direction, String busesMunicipal,
                              String busesCommercial, String busesPrigorod, String busesSeason, String busesSpecial,
                              String busesIntercity, String trolleybuses, String trams, String metros,
                              String electricTrains, String riverTransports) {
@@ -105,11 +105,11 @@ public class StopXmlUnmarshall {
         return builder.toString();
     }
 
-    public int getStopID() {
+    public Integer getStopID() {
         return stopID;
     }
 
-    public void setStopID(int stopID) {
+    public void setStopID(Integer stopID) {
         this.stopID = stopID;
     }
 

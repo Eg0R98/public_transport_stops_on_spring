@@ -4,19 +4,21 @@ package com.stulikov.public_transport_stops_on_spring;
 import com.stulikov.public_transport_stops_on_spring.exceptions.ConnectException;
 import com.stulikov.public_transport_stops_on_spring.forecast.Forecast;
 import com.stulikov.public_transport_stops_on_spring.transformation.Parsing;
+import io.micrometer.core.annotation.Timed;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-
+import org.springframework.stereotype.Component;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
+@Component("RequestBean")
 public class Request {
-    public static List<Forecast> httpRequest(int stopID) throws ConnectException, IOException {
+    @Timed(value = "httpRequest.timer", description = "measuring the execution time of a method httpRequest()")
+    public List<Forecast> httpRequest(int stopID) throws ConnectException, IOException {
         Document document = null;
         URL url = new URL("https://tosamara.ru/xml_bridge.php/");
         String params = String.format("method=getFirstArrivalToStop&KS_ID=%d&COUNT=10&version=main&eng=0", stopID);

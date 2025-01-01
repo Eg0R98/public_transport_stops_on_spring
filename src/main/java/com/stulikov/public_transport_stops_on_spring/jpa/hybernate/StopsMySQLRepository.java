@@ -1,17 +1,13 @@
-package com.stulikov.public_transport_stops_on_spring.hybernate;
+package com.stulikov.public_transport_stops_on_spring.jpa.hybernate;
 
 import com.stulikov.public_transport_stops_on_spring.stop.StopXmlUnmarshall;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.PersistenceContextType;
 import jakarta.persistence.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
-import java.util.Properties;
 
 @Repository("stopsMySQLRepositoryBean")
 public class StopsMySQLRepository implements StopsDBRepository {

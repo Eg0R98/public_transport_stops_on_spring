@@ -1,4 +1,4 @@
-package com.stulikov.public_transport_stops_on_spring.hybernate;
+package com.stulikov.public_transport_stops_on_spring.jpa.hybernate;
 
 import com.stulikov.public_transport_stops_on_spring.stop.StopXmlUnmarshall;
 

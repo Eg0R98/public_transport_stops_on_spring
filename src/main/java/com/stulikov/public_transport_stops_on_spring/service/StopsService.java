@@ -1,4 +1,4 @@
-package com.stulikov.public_transport_stops_on_spring.action;
+package com.stulikov.public_transport_stops_on_spring.service;
 
 
 import com.stulikov.public_transport_stops_on_spring.exceptions.ConnectException;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 
-public interface Actions {
+public interface StopsService {
     void update() throws ClassNotFoundException, ConnectException;
 
     void loadStops() throws ClassNotFoundException, JAXBException, ConnectException, SQLException, IOException;

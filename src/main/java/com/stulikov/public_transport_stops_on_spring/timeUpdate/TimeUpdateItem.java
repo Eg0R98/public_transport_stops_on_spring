@@ -9,7 +9,7 @@ public class TimeUpdateItem {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "TIME")
     private Double timeUpdate;
@@ -21,4 +21,5 @@ public class TimeUpdateItem {
     public void setTimeUpdate(Double timeUpdate) {
         this.timeUpdate = timeUpdate;
     }
+
 }

@@ -15,18 +15,15 @@ public class Classifiers {
     @XmlElement(name = "file")
     private List<File> filesWithTimeUpdate = new ArrayList<>();
 
-    public List<File> getFilesWithTimeUpdate() {
-        return filesWithTimeUpdate;
-    }
-
     public Double getTimeUpdate() {
-        Double d = null;
+        Double modified = null;
+
         for (File file : filesWithTimeUpdate) {
             if (file.getName().equals("stopsFullDB.xml")) {
-                d = file.getModified();
+                modified = file.getModified();
                 break;
             }
         }
-        return d;
+        return modified;
     }
 }

@@ -1,4 +1,4 @@
-package com.stulikov.public_transport_stops_on_spring.hybernate;
+package com.stulikov.public_transport_stops_on_spring.jpa.hybernate;
 
 import com.stulikov.public_transport_stops_on_spring.stop.StopXmlUnmarshall;
 import com.stulikov.public_transport_stops_on_spring.timeUpdate.TimeUpdateItem;
@@ -6,7 +6,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 @Repository("timeUpdateMySQLRepositoryBean")
